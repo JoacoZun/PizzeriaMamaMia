@@ -1,0 +1,122 @@
+/* Estilo por defecto para .content */
+.content {
+  margin-top: 0;
+  transition: margin-top 0.3s ease; /* Transición para cambiar de margen */
+}
+
+/* Estilo para pantallas menores a 991px */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    justify-content: flex-start;
+  }
+
+  .navbar-collapse.collapse {
+    visibility: hidden;
+    height: 0;
+    transition: height 0.3s ease, visibility 0.3s ease;
+  }
+
+  .navbar-collapse.show {
+    visibility: visible;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: 33, 37, 41;
+    width: 100%;
+    margin-bottom: 0;
+    transition: height 0.3s ease, visibility 0.3s ease;
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-item {
+    margin-bottom: 10px;
+  }
+
+  .navbar-nav .nav-link {
+    text-align: left;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .navbar-toggler {
+    font-size: 1.5rem;
+  }
+
+  .total-button {
+    display: inline-block;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* Solo aplica el margen-top cuando el toggle está abierto */
+  .navbar-open .content {
+    margin-top: 200px;
+    transition: margin-top 0.3s ease;
+  }
+
+  /* Asegura que cuando el toggle esté cerrado, el margen se elimina */
+  .navbar-collapse:not(.show) ~ .content {
+    margin-top: 0;
+  }
+}
+
+/* Para pantallas grandes (mayores de 991px) */
+@media (min-width: 992px) {
+  .navbar-collapse.show {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .navbar-toggler {
+    display: none;
+  }
+
+  /* Asegura que no haya margen-top en pantallas grandes */
+  .content {
+    margin-top: 0 !important;
+  }
+
+  .navbar-open .content {
+    margin-top: 0 !important;
+  }
+}
+
+/* Botón total */
+.total-button {
+  margin-left: auto;
+  border-color: #17a2b8;
+  color: #17a2b8;
+}
+
+.total-button:hover {
+  background-color: #17a2b8;
+  color: white;
+}
+
+/* Botones de navegación */
+.btn-outline-light {
+  color: white;
+  border-color: white;
+}
+
+.btn-outline-light:hover {
+  background-color: white;
+  color: #343a40;
+}
+
+.nav-item {
+  margin-right: 10px;
+}
