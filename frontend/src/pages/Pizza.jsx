@@ -11,7 +11,7 @@ const Pizza = () => {
   useEffect(() => {
     const fetchPizza = async () => {
       try {
-        const response = await fetch(`https://pizzeriamamamia.onrender.com/api/pizzas/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/pizzas/${pizza.id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch pizza data");
         }

@@ -6,10 +6,10 @@ const Home = () => {
   const [pizzas, setPizzas] = useState([]);
 
   useEffect(() => {
-    fetch("https://pizzeriamamamia.onrender.com/api/pizzas")
-      .then((response) => response.json())
-      .then((data) => {
-        setPizzas(data);
+    useEffect(() => {
+      fetch(`${import.meta.env.VITE_API_URL}/api/pizzas`)
+        .then((response) => response.json())
+        .then((data) => setPizzas(data));
       })
       .catch((error) => console.error("Error fetching pizzas:", error));
   }, []);

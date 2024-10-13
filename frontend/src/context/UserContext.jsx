@@ -17,10 +17,10 @@ export const UserProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch("https://pizzeriamamamia.onrender.com/api/auth/login", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password })
       });
       const data = await response.json();
       if (response.ok) {
@@ -39,11 +39,12 @@ export const UserProvider = ({ children }) => {
 
   const register = async (email, password) => {
     try {
-      const response = await fetch("https://pizzeriamamamia.onrender.com/api/auth/register", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
+      
       const data = await response.json();
       if (response.ok) {
         localStorage.setItem("token", data.token);
@@ -67,11 +68,12 @@ export const UserProvider = ({ children }) => {
 
   const getProfile = async () => {
     try {
-      const response = await fetch("https://pizzeriamamamia.onrender.com/api/auth/me", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
       });
+      
       const data = await response.json();
       if (response.ok) {
         setUserEmail(data.email);

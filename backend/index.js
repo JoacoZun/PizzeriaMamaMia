@@ -5,8 +5,18 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.use(cors()); // Habilita CORS
+
+const corsOptions = {
+  origin: 'https://joacozun.github.io/PizzeriaMamaMia',
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('API funcionando correctamente');
+});
 
 app.get('/api/pizzas', (req, res) => {
   res.json([{ id: 1, name: 'Margarita' }]);
