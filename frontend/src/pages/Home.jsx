@@ -6,7 +6,7 @@ const Home = () => {
   const [pizzas, setPizzas] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/pizzas")
+    fetch("https://pizzeriamamamia.onrender.com/api/pizzas")
       .then((response) => response.json())
       .then((data) => {
         setPizzas(data);

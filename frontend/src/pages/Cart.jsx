@@ -13,7 +13,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchPizzas = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/pizzas");
+        const response = await fetch("https://pizzeriamamamia.onrender.com/api/pizzas");
         if (!response.ok) {
           throw new Error("Error al cargar los datos de las pizzas en cart");
         }
@@ -50,13 +50,13 @@ const Cart = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/checkouts", {
+      const response = await fetch("https://pizzeriamamamia.onrender.com/api/checkouts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          "Authorization": `Bearer ${token}`,
         },
-        body: JSON.stringify({ cart })
+        body: JSON.stringify({ cart }),
       });
 
       if (!response.ok) {
