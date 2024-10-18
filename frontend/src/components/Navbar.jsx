@@ -43,7 +43,7 @@ const Navbar = ({ onToggle }) => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <Link to="/" className="navbar-brand">Pizzería Mamma Mia!</Link>
+      <Link to="/" className="navbar-brand">Pizzería Mamma Mia! 2</Link>
       <button
         className="navbar-toggler"
         type="button"
